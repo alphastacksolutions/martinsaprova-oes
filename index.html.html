@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARTINS | Soluções de Pagamento</title>
+    <meta name="description" content="Economize 50% em Shopee, Mercado Livre, Boletos e IPVA com o método MARTINS.">
+    
+    <!-- Fontes Tech: Inter e Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Ícones FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Animações AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* --- VARIÁVEIS DO TEMA DARK --- */
+        :root {
+            --bg-body: #020617;        /* Preto Azulado Profundo */
+            --bg-card: #0f172a;        /* Azul Noturno */
+            --bg-glass: rgba(15, 23, 42, 0.7);
+            --accent-blue: #3b82f6;    /* Azul Vibrante */
+            --accent-cyan: #06b6d4;    /* Ciano Tech */
+            --accent-green: #10B981;   /* Verde Dinheiro */
+            --text-main: #f8fafc;      /* Branco Gelo */
+            --text-muted: #94a3b8;     /* Cinza Azulado */
+            --border-color: #1e293b;
+            --gradient-main: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+            --gradient-green: linear-gradient(135deg, #10B981 0%, #059669 100%);
+        }
+
+        /* --- RESET --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; }
+        a { text-decoration: none; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- CONTAINER --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- BOTÕES --- */
+        .btn-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-green);
+            color: #fff;
+            font-weight: 700;
+            padding: 16px 35px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            cursor: pointer;
+        }
+
+        .btn-cta:hover { transform: translateY(-3px); box-shadow: 0 0 30px rgba(16, 185, 129, 0.6); }
+        .btn-cta i { margin-right: 10px; font-size: 1.3rem; }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #1e293b 0%, #020617 70%);
+            padding: 100px 20px;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: 0;
+            opacity: 0.4;
+        }
+
+        .hero-content { position: relative; z-index: 2; max-width: 900px; }
+
+        .hero-badge {
+            background: rgba(6, 182, 212, 0.1);
+            color: var(--accent-cyan);
+            border: 1px solid var(--accent-cyan);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .text-gradient {
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+        
+        .text-green { color: var(--accent-green); }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- SEÇÕES GERAIS --- */
+        .section-padding { padding: 80px 0; }
+        
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 10px; }
+        .section-header p { color: var(--text-muted); }
+
+        /* --- GRIDS DE CONTEÚDO --- */
+        .coverage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .coverage-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .coverage-card:hover {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .card-header {
+            background: rgba(255,255,255,0.03);
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .card-header i { color: var(--accent-cyan); font-size: 1.5rem; }
+        .card-header h3 { font-size: 1.2rem; color: #fff; }
+
+        .list-items { padding: 10px 0; }
+
+        .list-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            transition: 0.2s;
+        }
+
+        .list-row:last-child { border-bottom: none; }
+        .list-row:hover { background: rgba(255,255,255,0.02); }
+
+        .item-name {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: #cbd5e1;
+        }
+
+        .item-name i { width: 20px; text-align: center; color: #64748b; font-size: 0.9rem; }
+
+        .discount-badge {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--accent-green);
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        /* --- CARDS DE RESULTADOS (Substitui Imagens) --- */
+        .result-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .result-item {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: 0.3s;
+        }
+        .result-item:hover {
+            border-color: var(--accent-green);
+            transform: translateX(5px);
+        }
+        .result-icon {
+            width: 50px; height: 50px;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--accent-green);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem;
+        }
+        .result-info h4 { font-size: 1rem; color: #fff; margin-bottom: 2px; }
+        .result-info p { font-size: 0.85rem; color: var(--text-muted); }
+        .save-value { color: var(--accent-green); font-weight: 700; }
+
+
+        /* --- STEPS / POR QUE CONFIAR --- */
+        .steps-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .step-box {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: 0.3s;
+        }
+        
+        .step-box:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-blue);
+        }
+        
+        .step-icon {
+            font-size: 2rem; color: var(--accent-blue); margin-bottom: 15px;
+        }
+
+        /* --- WHATSAPP FLUTUANTE --- */
+        .float-wa {
+            position: fixed;
+            bottom: 25px; right: 25px;
+            width: 65px; height: 65px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 35px; color: #fff;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 100;
+            animation: pulse-green 2s infinite;
+        }
+
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* --- FOOTER --- */
+        .footer { padding: 40px 20px; text-align: center; border-top: 1px solid var(--border-color); font-size: 0.9rem; color: var(--text-muted); }
+
+        /* RESPONSIVO */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .coverage-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <div class="hero-bg"></div>
+        <div class="container hero-content" data-aos="fade-up">
+            <div class="hero-badge">
+                <i class="fas fa-check-circle"></i> MARTINS • SISTEMA VERIFICADO
+            </div>
+            <h1>PAGAMENTOS COM <br><span class="text-gradient">50% DE DESCONTO</span></h1>
+            <p>Economize metade do valor em suas compras online, boletos de consumo, taxas governamentais e serviços. Solução inteligente <strong>MARTINS</strong>.</p>
+            
+            <a href="https://wa.me/5521977490246?text=Ol%C3%A1%2C%20quero%20economizar%2050%25%20com%20o%20M%C3%A9todo%20Martins!" class="btn-cta">
+                <i class="fab fa-whatsapp"></i> Quero meu desconto agora
+            </a>
+            
+            <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.7;">
+                <i class="fas fa-lock"></i> Sigilo absoluto &bull; <i class="fas fa-bolt"></i> Processamento rápido
+            </p>
+        </div>
+    </header>
+
+    <!-- LISTA COMPLETA DE SERVIÇOS -->
+    <section class="section-padding" id="cobertura">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>O que podemos pagar com <span class="text-green">50% OFF</span>?</h2>
+                <div style="width: 60px; height: 4px; background: var(--accent-blue); margin: 10px auto;"></div>
+                <p>Nossa abrangência é completa. Veja onde você vai economizar com a MARTINS:</p>
+            </div>
+
+            <div class="coverage-grid">
+                
+                <!-- COLUNA 1: E-COMMERCE & LOJAS -->
+                <div class="coverage-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-header">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>Compras & Varejo</h3>
+                    </div>
+                    <div class="list-items">
+                        <div class="list-row">
+                            <span class="item-name"><i class="fas fa-globe"></i> Pagamentos Online</span>
+                            <span class="discount-badge">-50%</span>
+                        </div>
+                        <div class="list-row">
+                            <span class="item-name"><i class="fas fa-shopping-bag" style="color: #ea501f;"></i> Shopee</span>
+                            <span class="discount-badge">-50%</span>
+                        </div>
+                        <div class="list-row">
+                            <span class="item-name"><i class="fas fa-handshake" style="color: #ffe600;"></i> Mercado Livre</span>
+                            <span class="discount-badge">-50%</span>
+                        </div>
+                        <div class="list-row">
+                            <span class="item-name"><i class="fas fa-tshirt"></i> Shein</span>
+                            <span class="discount-badge">-50%</span>
+                        </div>
+                        <div class="list-row">
+                            <span class="item-name"><i class="fas fa-box-open" style="color: #ff9900;"></i> AliExpress</span>
+                            <span class="discount-badge">-50%</span>
+                        </div>
+                        <div class="list-row">
+                            <span class="item-name"><i class="fas fa-tag" style="color: #fb7701;"></i> Temu</span>
+                            <span class="discount-badge">-50%</span>
+                        </div>
+                        <div class="list-row">
+                            <span class="item-name"><i class="fas fa-cart-plus"></i> Compras Online Gerais</span>
+                            <span class="discount-badge">-50%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUNA 2: CONTAS DE CONSUMO & BOLETOS -->
+                <div class="coverage-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-header">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                        <h3>Boletos & Mensais</h3>
+                    </div>
+                    <div class="list-items">
+                        <div class="list-row">
+                            <span class="item-name"><i class="fas fa-barcode"></i> Boletos em Geral</span>
+                            <span class="discount-badge">-50%</span>
+                        </div>
+                        <div class="list-row">
+                            <span class="item-name"><i class="fas fa-lightbulb" style="color: #fbbf24;"></i> Conta de Luz</span>
+                            <span class="discount-badge">-50%</span>
+                        </div>
+                        <div class="list-row">
+                            <span class="item-name"><i class="fas fa-faucet" style="color: #3b82f6;"></i> Conta de Água</span>
+                            <span class="discount-badge">-50%</span>
+                        </div>
+                        <div class="list-row">
+                            <span class="item-name"><i class="fas fa-wifi"></i> Internet & Fibra</span>
+                            <span class="discount-badge">-50%</span>
+                        </div>
+                        <div class="list-row">
+                            <span class="item-name"><i class="fas fa-graduation-cap"></i> Faculdades</span>
+                            <span class="discount-badge">-50%</span>
+                        </div>
+                        <div class="list-row">
+                            <span class="item-name"><i class="fas fa-book-open"></i> Cursos & Academias</span>
+                            <span class="discount-badge">-50%</span>
+                        </div>
+                        <div class="list-row">
+                            <span class="item-name"><i class="fas fa-file-signature"></i> Faturas Diversas</span>
+                            <span class="discount-badge">-50%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUNA 3: SERVIÇOS & TAXAS -->
+                <div class="coverage-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-header">
+                        <i class="fas fa-concierge-bell"></i>
+                        <h3>Serviços & Taxas</h3>
+                    </div>
+                    <div class="list-items">
+                        <div class="list-row">
+                            <span class="item-name"><i class="fas fa-hamburger" style="color: #ea1d2c;"></i> iFood / Delivery</span>
+                            <span class="discount-badge">-50%</span>
+                        </div>
+                        <div class="list-row">
+                            <span class="item-name"><i class="fas fa-film"></i> Cinema & Lazer</span>
+                            <span class="discount-badge">-50%</span>
+                        </div>
+                        <div class="list-row">
+                            <span class="item-name"><i class="fas fa-suitcase"></i> Hospedagens (Booking/Airbnb)</span>
+                            <span class="discount-badge">-50%</span>
+                        </div>
+                        <div class="list-row">
+                            <span class="item-name"><i class="fas fa-car-side"></i> IPVA</span>
+                            <span class="discount-badge">-50%</span>
+                        </div>
+                        <div class="list-row">
+                            <span class="item-name"><i class="fas fa-exclamation-triangle"></i> Multas de Trânsito</span>
+                            <span class="discount-badge">-50%</span>
+                        </div>
+                        <div class="list-row">
+                            <span class="item-name"><i class="fas fa-receipt"></i> Taxas Administrativas</span>
+                            <span class="discount-badge">-50%</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Botão Centralizado -->
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="https://wa.me/5521977490246?text=Quero%20falar%20com%20o%20Martins%20sobre%20um%20pagamento." class="btn-cta">
+                    <i class="fab fa-whatsapp"></i> Simular meu desconto
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESULTADOS (SEM IMAGENS - APENAS DADOS) -->
+    <section class="section-padding" style="background:#020617;">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Últimas Economias Geradas</h2>
+                <p>Veja quanto nossos clientes economizaram nas últimas horas (Dados Reais)</p>
+            </div>
+
+            <div class="result-grid">
+                <div class="result-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="result-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <div class="result-info">
+                        <h4>iPhone 15 (Mercado Livre)</h4>
+                        <p>Economia: <span class="save-value">R$ 2.450,00</span></p>
+                    </div>
+                </div>
+
+                <div class="result-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="result-icon"><i class="fas fa-file-invoice"></i></div>
+                    <div class="result-info">
+                        <h4>Boleto IPVA</h4>
+                        <p>Economia: <span class="save-value">R$ 980,00</span></p>
+                    </div>
+                </div>
+
+                <div class="result-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="result-icon"><i class="fas fa-shopping-bag"></i></div>
+                    <div class="result-info">
+                        <h4>Compras Shein</h4>
+                        <p>Economia: <span class="save-value">R$ 450,00</span></p>
+                    </div>
+                </div>
+
+                <div class="result-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="result-icon"><i class="fas fa-laptop"></i></div>
+                    <div class="result-info">
+                        <h4>Notebook (Amazon)</h4>
+                        <p>Economia: <span class="save-value">R$ 1.800,00</span></p>
+                    </div>
+                </div>
+
+                <div class="result-item" data-aos="fade-up" data-aos-delay="500">
+                    <div class="result-icon"><i class="fas fa-bolt"></i></div>
+                    <div class="result-info">
+                        <h4>Conta de Luz (Enel)</h4>
+                        <p>Economia: <span class="save-value">R$ 320,00</span></p>
+                    </div>
+                </div>
+
+                <div class="result-item" data-aos="fade-up" data-aos-delay="600">
+                    <div class="result-icon"><i class="fas fa-receipt"></i></div>
+                    <div class="result-info">
+                        <h4>Fatura Cartão</h4>
+                        <p>Economia: <span class="save-value">R$ 1.200,00</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMO FUNCIONA SIMPLIFICADO -->
+    <section class="section-padding" style="background: #0b1120;">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Simples. Rápido. Seguro.</h2>
+            </div>
+            <div class="steps-wrapper">
+                <div class="step-box" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-icon"><i class="fas fa-paper-plane"></i></div>
+                    <h3>1. Envie o Boleto/Link</h3>
+                    <p style="color: #94a3b8;">Mande para o atendimento MARTINS o que você deseja pagar.</p>
+                </div>
+                <div class="step-box" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-icon"><i class="fas fa-percentage"></i></div>
+                    <h3>2. Receba o Abatimento</h3>
+                    <p style="color: #94a3b8;">Nossa equipe aplica o desconto de 50% no valor total.</p>
+                </div>
+                <div class="step-box" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-icon"><i class="fas fa-check-double"></i></div>
+                    <h3>3. Pronto!</h3>
+                    <p style="color: #94a3b8;">Pagamento efetuado e comprovante oficial enviado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POR QUE CONFIAR -->
+    <section class="section-padding" style="background:#0b1120; border-top: 1px solid var(--border-color);">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Por que confiar na MARTINS?</h2>
+            </div>
+
+            <div class="steps-wrapper">
+                <div class="step-box" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Processo Seguro</h3>
+                    <p>Todos os atendimentos são feitos com análise individual e total sigilo.</p>
+                </div>
+
+                <div class="step-box" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-icon"><i class="fas fa-users"></i></div>
+                    <h3>Equipe Especializada</h3>
+                    <p>Profissionais focados em negociação, otimização e redução de custos.</p>
+                </div>
+
+                <div class="step-box" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-icon"><i class="fas fa-clock"></i></div>
+                    <h3>Atendimento Ágil</h3>
+                    <p>Respostas rápidas e acompanhamento do início ao fim.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>O que nossos clientes dizem</h2>
+            </div>
+
+            <div class="coverage-grid">
+                <div class="coverage-card" data-aos="flip-up" data-aos-delay="100">
+                    <div class="card-header">
+                        <i class="fas fa-user-circle"></i>
+                        <h3>Rafael M.</h3>
+                    </div>
+                    <p style="padding:20px; color:#cbd5e1;">
+                        Atendimento rápido, suporte excelente e total clareza no processo. Recomendo.
+                    </p>
+                </div>
+
+                <div class="coverage-card" data-aos="flip-up" data-aos-delay="200">
+                    <div class="card-header">
+                        <i class="fas fa-user-circle"></i>
+                        <h3>Juliana S.</h3>
+                    </div>
+                    <p style="padding:20px; color:#cbd5e1;">
+                        Fui muito bem atendida, tiraram todas as dúvidas e acompanharam tudo.
+                    </p>
+                </div>
+
+                <div class="coverage-card" data-aos="flip-up" data-aos-delay="300">
+                    <div class="card-header">
+                        <i class="fas fa-user-circle"></i>
+                        <h3>Carlos A.</h3>
+                    </div>
+                    <p style="padding:20px; color:#cbd5e1;">
+                        Profissionais sérios, processo organizado e comunicação clara.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ (Segurança) -->
+    <section class="section-padding faq-section" style="background: #020617;">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Perguntas Frequentes</h2>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto;" data-aos="fade-up">
+                <details style="background: var(--bg-card); padding: 20px; border-radius: 8px; margin-bottom: 10px; cursor: pointer;">
+                    <summary style="font-weight: 600; color: var(--accent-blue);">O comprovante é válido?</summary>
+                    <p style="margin-top: 10px; color: var(--text-muted);">Sim! Você recebe o comprovante bancário oficial de quitação do boleto ou da compra.</p>
+                </details>
+                <details style="background: var(--bg-card); padding: 20px; border-radius: 8px; margin-bottom: 10px; cursor: pointer;">
+                    <summary style="font-weight: 600; color: var(--accent-blue);">Tem valor mínimo?</summary>
+                    <p style="margin-top: 10px; color: var(--text-muted);">Analisamos todos os casos, mas geralmente para maior eficiência recomendamos valores acima de R$ 100,00.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="section-padding" style="background:linear-gradient(135deg,#020617,#020617,#0b1120); border-top: 1px solid var(--border-color);">
+        <div class="container" style="text-align:center;" data-aos="zoom-in">
+            <h2 style="font-size:2.5rem;">Pronto para economizar?</h2>
+            <p style="color:#94a3b8; margin:20px auto; max-width:600px;">
+                Fale agora com nosso atendimento e receba uma análise personalizada.
+            </p>
+
+            <a href="https://wa.me/5521977490246" class="btn-cta">
+                <i class="fab fa-whatsapp"></i> Falar com especialista
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 <strong>MARTINS</strong> Soluções Financeiras. Todos os direitos reservados.</p>
+            <p style="margin-top: 10px; font-size: 0.8rem;">Atendimento Seg. a Sex. das 09h às 18h</p>
+        </div>
+    </footer>
+
+    <!-- Botão Flutuante -->
+    <a href="https://wa.me/5521977490246?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20o%20desconto." class="float-wa" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+    </script>
+</body>
+</html>
